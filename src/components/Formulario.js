@@ -45,7 +45,7 @@ const Formulario = () => {
         <form
             onSubmit={handleSubmit}
         >
-            {error ? <p className="red darken-4">Todos los campos son obligatorios</p> :
+            {error ? <p className="red darken-4 error">Todos los campos son obligatorios</p> :
             null }
             <div className="input-field col s12">
                 <input
