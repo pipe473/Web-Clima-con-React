@@ -10,7 +10,16 @@ const Formulario = () => {
                     name="ciudad"
                     id="ciudad"
                 />
-                <label>Ciudad: </label>
+                <label htmlFor="ciudad">Ciudad: </label>
+            </div>
+            <div className="input-field col s12">
+                <select
+                name="pais"
+                id="pais"
+                >
+                    <option value="">-- Seleccione un país --</option>
+                </select>
+                <label htmlFor="pais">País: </label>
             </div>
         </form>
 
