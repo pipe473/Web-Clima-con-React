@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Formulario = () => {
+
+    // State del formulario
+    const [ busqueda, guardarBusqueda ] = useState({
+        ciudad: '',
+        pais: ''
+    });
+
     return ( 
 
         <form>
