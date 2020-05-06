@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 
-const Formulario = () => {
-
-    // State del formulario
-    const [ busqueda, guardarBusqueda ] = useState({
-        ciudad: '',
-        pais: ''
-    });
+const Formulario = ({busqueda, guardarBusqueda}) => {
 
     const [ error, guardarError ] = useState(false);
 
