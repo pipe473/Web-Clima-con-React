@@ -25,9 +25,7 @@ const Formulario = ({busqueda, guardarBusqueda, guardarConsultar}) => {
             guardarError(true);
             return;
         }
-
         guardarError(false);
-
 
         // Pasarlo al componente principal
         guardarConsultar(true);
