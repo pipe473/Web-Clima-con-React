@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import Header from './components/Header';
 import Formulario from './components/Formulario';
 
@@ -9,6 +9,8 @@ const [ busqueda, guardarBusqueda ] = useState({
   ciudad: '',
   pais: ''
 });
+
+const { ciudad, pais } = busqueda;
 
   return (
     <Fragment>
