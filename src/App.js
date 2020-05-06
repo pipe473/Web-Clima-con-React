@@ -15,8 +15,10 @@ const [ consultar, guardarConsultar ] = useState(false);
 const { ciudad, pais } = busqueda;
 
 useEffect(() => {
-  console.log(ciudad);
-  
+  const consultarAPI = async () => {
+    
+  }
+  consultarAPI();
 },[consultar]);
 
   return (
