@@ -10,12 +10,14 @@ const [ busqueda, guardarBusqueda ] = useState({
   pais: ''
 });
 
+const [ consultar, guardarConsultar ] = useState(false);
+
 const { ciudad, pais } = busqueda;
 
 useEffect(() => {
   console.log(ciudad);
   
-}, [ciudad, pais]);
+},[consultar]);
 
   return (
     <Fragment>
@@ -30,6 +32,7 @@ useEffect(() => {
                <Formulario 
                 busqueda={busqueda}
                 guardarBusqueda={guardarBusqueda}
+                guardarConsultar={guardarConsultar}
                />
             </div>
             <div className="col m6 s12">
