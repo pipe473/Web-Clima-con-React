@@ -10,6 +10,7 @@ const Formulario = () => {
                     name="ciudad"
                     id="ciudad"
                 />
+                <label>Ciudad: </label>
             </div>
         </form>
 
