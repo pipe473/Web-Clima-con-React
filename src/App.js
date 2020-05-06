@@ -12,6 +12,11 @@ const [ busqueda, guardarBusqueda ] = useState({
 
 const { ciudad, pais } = busqueda;
 
+useEffect(() => {
+  console.log(ciudad);
+  
+}, [ciudad, pais]);
+
   return (
     <Fragment>
       <Header 
