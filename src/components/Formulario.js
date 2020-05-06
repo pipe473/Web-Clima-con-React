@@ -19,6 +19,7 @@ const Formulario = () => {
                     type="text"
                     name="ciudad"
                     id="ciudad"
+                    value={ciudad}
                 />
                 <label htmlFor="ciudad">Ciudad: </label>
             </div>
@@ -26,6 +27,7 @@ const Formulario = () => {
                 <select
                 name="pais"
                 id="pais"
+                value={pais}
                 >
                     <option value="">-- Seleccione un país --</option>
                     <option value="US">Estados Unidos</option>
