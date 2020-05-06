@@ -8,6 +8,8 @@ const Formulario = () => {
         pais: ''
     });
 
+    const [ error, guardarError ] = useState(false);
+
     // extraer ciudad y pais
     const { ciudad, pais } = busqueda;
 
@@ -20,9 +22,31 @@ const Formulario = () => {
         });
     }
 
+    // Cuando el usuario da submit al formulario
+    const handleSubmit = e => {
+        e.preventDefault();
+
+        // Validar
+        if (ciudad.trim() === '' || pais.trim() === '') {
+            guardarError(true);
+            return;
+        }
+
+        guardarError(false);
+
+
+        // Pasarlo al componente principal
+
+
+    }
+
     return ( 
 
-        <form>
+        <form
+            onSubmit={handleSubmit}
+        >
+            {error ? <p className="red darken-4">Todos los campos son obligatorios</p> :
+            null }
             <div className="input-field col s12">
                 <input
                     type="text"
