@@ -8,6 +8,9 @@ const Formulario = () => {
         pais: ''
     });
 
+    // extraer ciudad y pais
+    const { ciudad, pais } = busqueda;
+
     return ( 
 
         <form>
