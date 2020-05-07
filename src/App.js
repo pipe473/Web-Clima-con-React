@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import Header from './components/Header'
 import Formulario from './components/Formulario'
+import Clima from './components/Clima'
 
 function App () {
   // State del formulario
@@ -46,7 +47,9 @@ function App () {
                 guardarConsultar={guardarConsultar}
               />
             </div>
-            <div className='col m6 s12'>2</div>
+            <div className='col m6 s12'>
+              <Clima />  
+            </div>
           </div>
         </div>
       </div>
