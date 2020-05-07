@@ -5,6 +5,9 @@ const Clima = ({resultado}) => {
 
     // Extraer los valores
     const { name, main } = resultado;
+
+    if (!name) return null;     
+    
     return ( 
         <div className="card-panel white col s12">
             <div className="black-text">
