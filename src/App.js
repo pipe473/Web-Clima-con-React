@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react'
 import Header from './components/Header'
 import Formulario from './components/Formulario'
 import Clima from './components/Clima'
+import Error from './components/Error'
 
 function App () {
   // State del formulario
@@ -35,6 +36,7 @@ function App () {
         } else {
           guardarError(false);
         }
+
       }
       
     }
@@ -44,11 +46,11 @@ function App () {
 
   let componente;
   if(error) {
-    componente = <Error mensaje="No hay resultados correctos" />
+    componente = <Error mensaje="No hay resultados" />
   } else {
     componente = <Clima 
-    resultado={resultado}
-  /> 
+                  resultado={resultado}
+                />  
   }
 
 
@@ -67,8 +69,7 @@ function App () {
               />
             </div>
             <div className='col m6 s12'>
-                {componente}
-              />  
+              {componente}
             </div>
           </div>
         </div>

@@ -30,7 +30,6 @@ const Formulario = ({busqueda, guardarBusqueda, guardarConsultar}) => {
         // Pasarlo al componente principal
         guardarConsultar(true);
 
-
     }
 
     return ( 
