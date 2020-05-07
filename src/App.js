@@ -4,21 +4,22 @@ import Formulario from './components/Formulario'
 import Clima from './components/Clima'
 import Error from './components/Error'
 
-function App () {
-  // State del formulario
-  const [busqueda, guardarBusqueda] = useState({
+function App() {
+
+  // state del formulario
+const [busqueda, guardarBusqueda] = useState({ 
     ciudad: '',
     pais: ''
-  })
+});
+const [consultar, guardarConsultar] = useState(false);
+const [resultado, guardarResultado] = useState({});
+const [error, guardarError] = useState(false);
 
-  const [consultar, guardarConsultar] = useState(false);
-  const [resultado, guardarResultado] = useState({});
-  const [error, guardarError] = useState(false);
+const { ciudad, pais } = busqueda;
 
-  const { ciudad, pais } = busqueda;
-
-  useEffect(() => {
-    const consultarAPI = async () => {
+useEffect(() => {
+  const consultarAPI = async () => {
+    
       if (consultar) {
         const appId = '93e94d836748716962d0b76919eb50e4'
         const url = `http://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&appid=${appId}`;
@@ -28,54 +29,57 @@ function App () {
         const resultado = await respuesta.json();
 
         guardarResultado(resultado);
-        guardarResultado(false);
+        guardarConsultar(false);
 
         // Detecta si hubo resultados correctos en la consulta
-        if (resultado.cod === '404') {
-          guardarError(true);
-        } else {
-          guardarError(false);
-        }
 
+        if(resultado.cod === "404") {
+            guardarError(true);
+        } else {
+            guardarError(false);
+        }
       }
       
-    }
-    consultarAPI();
-    
-  },[consultar]);
-
-  let componente;
-  if(error) {
-    componente = <Error mensaje="No hay resultados" />
-  } else {
-    componente = <Clima 
-                  resultado={resultado}
-                />  
   }
+  consultarAPI();
+  // eslint-disable-next-line
+},[consultar]);
 
-
-  return (
-    <Fragment>
-      <Header titulo='Clima React App' />
-
-      <div className='contenedor-form'>
-        <div className='container'>
-          <div className='row'>
-            <div className='col m6 s12'>
-              <Formulario
-                busqueda={busqueda}
-                guardarBusqueda={guardarBusqueda}
-                guardarConsultar={guardarConsultar}
+let componente;
+if(error) {
+  componente = <Error mensaje="No hay resultados" />
+} else {
+  componente = <Clima 
+                  resultado={resultado}
               />
-            </div>
-            <div className='col m6 s12'>
-              {componente}
-            </div>
+}
+
+
+
+return (
+  <Fragment>
+      <Header 
+        titulo='Clima React App'
+      />
+
+      <div className="contenedor-form">
+          <div className="container">
+              <div className="row">
+                  <div className="col m6 s12">
+                      <Formulario 
+                        busqueda={busqueda}
+                        guardarBusqueda={guardarBusqueda}
+                        guardarConsultar={guardarConsultar}
+                      />
+                  </div>
+                  <div className="col m6 s12">
+                      {componente}
+                  </div>
+              </div>
           </div>
-        </div>
       </div>
-    </Fragment>
-  )
+  </Fragment>
+);
 }
 
 export default App;
