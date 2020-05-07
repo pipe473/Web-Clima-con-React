@@ -42,6 +42,15 @@ function App () {
     
   },[consultar]);
 
+  let componente;
+  if(error) {
+    componente = <Error mensaje="No hay resultados correctos" />
+  } else {
+    componente = <Clima 
+    resultado={resultado}
+  /> 
+  }
+
 
   return (
     <Fragment>
