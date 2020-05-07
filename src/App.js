@@ -9,24 +9,27 @@ function App () {
     pais: ''
   })
 
-  const [consultar, guardarConsultar] = useState(false)
+  const [consultar, guardarConsultar] = useState(false);
+  const [resultado, guardarResultado] = useState({})
 
   const { ciudad, pais } = busqueda;
 
   useEffect(() => {
     const consultarAPI = async () => {
       if (consultar) {
-        const appId = '71b71dd5ecf61466364ab3ab94941e8f'
-        const url = `http://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&
+        const appId = 'bf7885ab83105609195dce3b4c23b5e6'
+        const url = `http://api.openweathermap.org/data/2.5/weather/?q=${ciudad},${pais}&
       appid=${appId}`;
 
-        const respuesta = await fetch(url)
-        const resultado = await respuesta.json()
+        const respuesta = await fetch(url);
+        const resultado = await respuesta.json();
 
-        console.log(resultado)
+        guardarResultado(resultado);
       }
+      
     }
     consultarAPI();
+    
   },[consultar]);
 
   return (
