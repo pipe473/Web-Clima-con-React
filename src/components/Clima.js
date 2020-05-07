@@ -16,7 +16,7 @@ const Clima = ({resultado}) => {
             <div className="black-text">
                 <h2>El clima de {name} es:</h2>
                 <p className="temperatura">
-                    {main.temp-kelvin}
+                    { parseFloat(main.temp-kelvin, 10).toFixed(2) }
                 </p>
             </div>
         </div>
