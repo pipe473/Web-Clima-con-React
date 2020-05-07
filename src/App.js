@@ -11,7 +11,8 @@ function App () {
   })
 
   const [consultar, guardarConsultar] = useState(false);
-  const [resultado, guardarResultado] = useState({})
+  const [resultado, guardarResultado] = useState({});
+  const [error, guardarError] = useState(false);
 
   const { ciudad, pais } = busqueda;
 
@@ -27,12 +28,20 @@ function App () {
 
         guardarResultado(resultado);
         guardarResultado(false);
+
+        // Detecta si hubo resultados correctos en la consulta
+        if (resultado.cod === '404') {
+          guardarError(true);
+        } else {
+          guardarError(false);
+        }
       }
       
     }
     consultarAPI();
     
   },[consultar]);
+
 
   return (
     <Fragment>
