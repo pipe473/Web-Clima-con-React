@@ -67,8 +67,7 @@ function App () {
               />
             </div>
             <div className='col m6 s12'>
-              <Clima 
-                resultado={resultado}
+                {componente}
               />  
             </div>
           </div>
