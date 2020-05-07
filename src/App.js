@@ -48,7 +48,9 @@ function App () {
               />
             </div>
             <div className='col m6 s12'>
-              <Clima />  
+              <Clima 
+                resultado={resultado}
+              />  
             </div>
           </div>
         </div>
